@@ -8,7 +8,7 @@ export class QuestionService {
   getConfig() {
     const questions = [
       {
-          interactionType: 'DropdownQuestion',
+          questionClass: 'DropdownQuestion',
           key: 'brave',
           label: 'Super Bravery Rating',
           options: [
@@ -20,7 +20,7 @@ export class QuestionService {
           order: 3
         },
         {
-          interactionType: 'TextboxQuestion',
+          questionClass: 'TextboxQuestion',
           key: 'firstName',
           label: 'First name',
           value: 'Bombasto',
@@ -28,7 +28,7 @@ export class QuestionService {
           order: 1
         },
         {
-          interactionType: 'TextboxQuestion',
+          questionClass: 'TextboxQuestion',
           key: 'emailAddress',
           label: 'Email',
           type: 'email',

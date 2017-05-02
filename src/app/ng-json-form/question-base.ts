@@ -1,6 +1,6 @@
 export class QuestionBase<T>{
   value: T;
-  interactionType: string;
+  questionClass: string;
   key: string;
   label: string;
   required: boolean;
@@ -9,7 +9,7 @@ export class QuestionBase<T>{
 
   constructor(options: {
       value?: T,
-      interactionType?: string,
+      questionClass?: string,
       key?: string,
       label?: string,
       required?: boolean,
@@ -17,7 +17,7 @@ export class QuestionBase<T>{
       controlType?: string
     } = {}) {
     this.value = options.value;
-    this.interactionType = options.interactionType;
+    this.questionClass = options.questionClass;
     this.key = options.key || '';
     this.label = options.label || '';
     this.required = !!options.required;

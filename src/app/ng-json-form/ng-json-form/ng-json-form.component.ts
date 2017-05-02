@@ -22,8 +22,9 @@ export class NgJsonFormComponent implements OnInit {
   constructor(private qcs: QuestionControlService) {  }
 
   ngOnInit() {
+    // Cast config entries to appropriate Question Classes.
     this.config.forEach(element => {
-      switch (element.interactionType) {
+      switch (element.questionClass) {
         case 'DropdownQuestion':
           this.questions.push(new DropdownQuestion(element));
           break;
