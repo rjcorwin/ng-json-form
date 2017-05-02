@@ -9,9 +9,15 @@ import { QuestionService } from './question.service';
   providers:  [QuestionService]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'NG JSON Form Demo';
   config: any[];
+  result: object;
   constructor(service: QuestionService) {
     this.config = service.getConfig();
   }
+
+  onJsonFormSubmit(data) {
+    this.result = data;
+  }
+
 }

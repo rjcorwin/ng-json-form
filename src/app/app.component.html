@@ -2,4 +2,9 @@
   {{title}}
 </h1>
 
-<app-ng-json-form [config]="config"></app-ng-json-form>
+<h2>NG JSON Form Component</h2>
+<app-ng-json-form [config]="config" (jsonFormSubmit)="onJsonFormSubmit($event)"></app-ng-json-form>
+<div *ngIf="result">
+  <h2>Result</h2>
+  <textarea rows=10 cols=80>{{result | json}}</textarea>
+</div>
