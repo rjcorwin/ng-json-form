@@ -22,7 +22,6 @@ export class NgJsonFormComponent implements OnInit {
   constructor(private qcs: QuestionControlService) {  }
 
   ngOnInit() {
-    // Todo: This also happens again in qcs.
     this.config.forEach(element => {
       switch (element.interactionType) {
         case 'DropdownQuestion':
