@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../question-base';
+import { TextboxQuestion } from '../question-textbox';
+import { DropdownQuestion } from '../question-dropdown';
 import { QuestionControlService } from '../question-control.service';
 
 @Component({
@@ -12,16 +14,26 @@ import { QuestionControlService } from '../question-control.service';
 })
 export class NgJsonFormComponent implements OnInit {
 
-  @Input() questions: QuestionBase<any>[] = [];
+  @Input() config: Array<any> = [];
+  questions: QuestionBase<any>[] = [];
   form: FormGroup;
   payLoad = '';
 
   constructor(private qcs: QuestionControlService) {  }
 
   ngOnInit() {
+    // Todo: This also happens again in qcs.
+    this.config.forEach(element => {
+      switch (element.interactionType) {
+        case 'DropdownQuestion':
+          this.questions.push(new DropdownQuestion(element));
+          break;
+        case 'TextboxQuestion':
+          this.questions.push(new TextboxQuestion(element));
+          break;
+      }
+    });
     this.form = this.qcs.toFormGroup(this.questions);
-    // Todo: Something is wrong here...
-    this.questions = [];
   }
 
   onSubmit() {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { QuestionService } from './ng-json-form/question.service';
+import { QuestionService } from './question.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ import { QuestionService } from './ng-json-form/question.service';
 })
 export class AppComponent {
   title = 'app works!';
-  questions: any[];
+  config: any[];
   constructor(service: QuestionService) {
-    this.questions = service.getConfigQuestions();
+    this.config = service.getConfig();
   }
 }

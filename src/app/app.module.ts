@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { NgJsonFormModule } from './ng-json-form/ng-json-form.module';
 
+import { QuestionService } from './question.service';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -17,7 +18,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     NgJsonFormModule
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
