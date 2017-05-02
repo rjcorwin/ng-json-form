@@ -1,3 +1,5 @@
 <h1>
   {{title}}
 </h1>
+{{questions | json}}
+<app-ng-json-form [questions]="questions"></app-ng-json-form>
