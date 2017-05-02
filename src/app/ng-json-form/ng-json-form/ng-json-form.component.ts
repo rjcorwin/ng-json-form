@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../question-base';
@@ -15,14 +15,14 @@ import { QuestionControlService } from '../question-control.service';
 export class NgJsonFormComponent implements OnInit {
 
   @Input() config: Array<any> = [];
+  @Output() jsonFormSubmit: EventEmitter<Object> = new EventEmitter();
   questions: QuestionBase<any>[] = [];
   form: FormGroup;
-  payLoad = '';
 
   constructor(private qcs: QuestionControlService) {  }
 
   ngOnInit() {
-    // Cast config entries to appropriate Question Classes.
+    // Populate this.questions from this.config with appropriately casted Question Classes.
     this.config.forEach(element => {
       switch (element.questionClass) {
         case 'DropdownQuestion':
@@ -37,6 +37,6 @@ export class NgJsonFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
+    this.jsonFormSubmit.emit(this.form.value);
   }
 }
