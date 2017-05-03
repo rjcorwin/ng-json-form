@@ -1,4 +1,6 @@
-# NgjfExample
+# Angular JSON Forms Example 
+
+A modularized version of the Dynamic Form Example in the Angular Cookbook (https://angular.io/docs/ts/latest/cookbook/dynamic-form.html). Running on Angular 4.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
 
